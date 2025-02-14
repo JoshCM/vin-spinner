@@ -13,7 +13,8 @@
             color: #4a4a4a;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
+            /* Alle Elemente nach oben verschoben */
             align-items: center;
             height: 100vh;
             margin: 0;
@@ -24,7 +25,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 50%;
+            height: 45%;
         }
 
         #spinner {
@@ -74,7 +75,9 @@
         }
 
         img {
-            max-width: 200px;
+            max-width: 150px;
+            margin-top: 0;
+            /* Kein Abstand mehr zum oberen Rand */
         }
     </style>
 </head>
