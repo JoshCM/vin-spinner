@@ -13,10 +13,18 @@
             color: #4a4a4a;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 50%;
         }
 
         #spinner {
@@ -25,6 +33,7 @@
             color: #a3195b;
             animation: spin 0.5s linear infinite;
             visibility: hidden;
+            position: absolute;
         }
 
         @keyframes spin {
@@ -44,9 +53,6 @@
             transform: scale(0.8);
             transition: opacity 0.5s ease, transform 0.5s ease;
             min-height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         button {
@@ -60,6 +66,7 @@
             transition: background 0.3s;
             max-width: 80%;
             width: 300px;
+            margin-top: 20px;
         }
 
         button:hover {
@@ -77,8 +84,10 @@
     <img src="https://www.vigneron-independant.com/sites/default/files/logo_national_png.png"
         alt="Vignerons Indépendants Logo">
 
-    <div id="spinner">🔄</div>
-    <div id="result">—</div>
+    <div id="container">
+        <div id="result">—</div>
+        <div id="spinner">🔄</div>
+    </div>
 
     <button onclick="generateRandomCombination()">Obtenir une combinaison</button>
 
