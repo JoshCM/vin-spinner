@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur aléatoire</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 0;
+            background: #ffffff;
+            color: #4a4a4a;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #spinner {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #a3195b;
+            animation: spin 0.5s linear infinite;
+            visibility: hidden;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #result {
+            font-size: 7rem;
+            color: #a3195b;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: #a3195b;
+            color: white;
+            border-radius: 15px;
+            transition: background 0.3s;
+            max-width: 80%;
+            width: 300px;
+        }
+
+        button:hover {
+            background: #800040;
+        }
+
+        img {
+            max-width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="https://www.vigneron-independant.com/sites/default/files/logo_national_png.png"
+        alt="Vignerons Indépendants Logo">
+
+    <div id="spinner">🔄</div>
+    <div id="result">—</div>
+
+    <button onclick="generateRandomCombination()">Obtenir une combinaison</button>
+
+    <script>
+        function generateRandomCombination() {
+            const letters = "ABCDEFGHIJKLMN";
+            const spinner = document.getElementById('spinner');
+            const result = document.getElementById('result');
+
+            spinner.style.visibility = 'visible';
+            result.style.opacity = '0';
+            result.style.transform = 'scale(0.8)';
+            result.textContent = '—';
+
+            setTimeout(() => {
+                const randomLetter = letters[Math.floor(Math.random() * letters.length)];
+                const randomNumber = Math.floor(Math.random() * 44) + 1;
+                result.textContent = `${randomLetter}${randomNumber}`;
+
+                spinner.style.visibility = 'hidden';
+                result.style.opacity = '1';
+                result.style.transform = 'scale(1)';
+            }, 2000);
+        }
+    </script>
+
+</body>
+
+</html>
